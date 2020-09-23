@@ -1,0 +1,14 @@
+{% extends "news_job/base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+    <p>Are you sure want to delete "{{news}}"</p>
+
+  <form action="{% url 'delete' news.id%}" method="POST">
+      {% csrf_token %}
+    <a href="{% url 'home'%}">Cancel</a>
+    <input type="submit" name="confirm">
+  </form>
+{% endblock content %}

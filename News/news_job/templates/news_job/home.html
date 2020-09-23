@@ -1,0 +1,25 @@
+{% extends "news_job/base.html" %}
+{% load static %}
+    {% block content %}
+    <br>
+        {% for new in news %}
+      
+        <div class="card" style="width: 18rem;">
+                {% if new.image %}
+                <img src="{{new.image.url}}" class="" style="width: 120px;">
+                {% endif %}
+                
+                <td><div class="card-body"></td>
+                <td><h5 class="card-title">{{new.description}}</h5></td>
+                <td><p class="card-text">{{new.body}}</p></td>
+                <p>{{new.date_time}}</p>
+                <p>{{new.created_by }}</p>
+                <td><a href="{% url 'update' new.id%}" class="btn btn-primary">Updated</a></td>
+                <td><a href="{% url 'delete' new.id%}" class="btn btn-danger">Deletd</a></td>
+                </div>
+       
+          </div>
+          {% endfor %}
+        
+           
+    {% endblock content %}
